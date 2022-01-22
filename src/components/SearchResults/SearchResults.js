@@ -3,6 +3,7 @@ import React from 'react';
 import './SearchResults.css';
 
 const SearchResults = props => {
+
     const dateBuilder = (d) => {
         let months = ["January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
@@ -16,14 +17,18 @@ const SearchResults = props => {
     }
     return (
         <div className='search-results'>
-            <div className="location-box">
-                <p className="location">Los Angeles, US</p>
-                <p className="date">{dateBuilder(new Date())}</p>
-            </div>
-            <div className="weather-box">
-                <p className="temp">15°C</p>
-                <p className="weather">Sunny</p>
-            </div>
+            {(typeof props.weather.main != "undefined") ? (
+                <div>
+                    <div className="location-box">
+                        <p className="location">{props.weather.name}, {props.weather.sys.country}</p>
+                        <p className="date">{dateBuilder(new Date())}</p>
+                    </div>
+                    <div className="weather-box">
+                        <p className="temp">{Math.round(props.weather.main.temp)}°C</p>
+                        <p className="weather">{props.weather.weather[0].main}</p>
+                    </div>
+                </div>
+            ) : ("")}
         </div>
     );
 };

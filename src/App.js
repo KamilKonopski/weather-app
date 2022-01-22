@@ -1,25 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './App.css';
 
 import SearchBar from './components/SearchBar/SearchBar';
 import SearchResults from './components/SearchResults/SearchResults';
 
-// const api = {
-//   key: "fcb6994c5d748fc4cbc63f5a0f68e8fd",
-//   base: "api.openweathermap.org/data/2.5/",
-// };
+const api = {
+  key: "5f13c8975544756484231769e79bd704",
+  base: "https://api.openweathermap.org/data/2.5/",
+};
 
 function App() {
 
-  // const [query, setQuery] = useState;
-  // const [weather, setWeather] = useState;
+  const [query, setQuery] = useState('');
+  const [weather, setWeather] = useState({});
+
+  const search = (event) => {
+    if (event.key === "Enter") {
+      fetch(`${api.base}weather?q=${query}&appid=${api.key}`)
+        .then(res => res.json())
+        .then(result => {
+          setWeather(result);
+          setQuery('');
+          console.log(result)
+        });
+    };
+  };
+
+  const searchQuery = event => {
+    setQuery(event.target.value)
+  }
 
   return (
-    <div className="app">
+    <div className={
+      (typeof weather.main != "undefined")
+        ? ((weather.main.temp > 16)
+          ? 'app warm' : 'app')
+        : 'app'}>
       <main>
-        <SearchBar />
-        <SearchResults />
+        <SearchBar
+          search={search}
+          searchQuery={searchQuery}
+          query={query}
+        />
+        <SearchResults weather={weather} />
       </main>
     </div>
   );
