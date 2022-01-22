@@ -1,0 +1,19 @@
+.app {
+    margin: 100px auto;
+    width: 375px;
+    height: 670px;
+    background-image: url('./assets/cold-bg.jpg');
+    background-size: cover;
+    background-position: bottom;
+    transition: 0.4s ease-out;
+}
+
+.app.warm {
+    background-image: url('./assets/warm-bg.jpg');
+}
+
+main {
+    height: 100%;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.75));
+    padding: 25px;
+}
