@@ -9,8 +9,8 @@
 .location-box .date {
     color: #fff;
     font-size: 20px;
-    font-weight: 300;
     font-style: italic;
+    font-weight: 300;
     text-align: center;
     text-shadow: 2px 2px rgba(50, 50, 70, 0.5);
 }
@@ -20,18 +20,18 @@
 }
 
 .weather-box .temp {
-    position: relative;
-    display: inline-block;
-    margin: 30px auto;
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 16px;
-    padding: 15px 25px;
+    box-shadow: 3px 6px rgba(0, 0, 0, 0.2);
     color: #fff;
+    display: inline-block;
     font-size: 102px;
     font-weight: 900;
-    text-shadow: 3px 6px rgba(50, 50, 70 0.5);
+    margin: 30px auto;
+    padding: 15px 25px;
+    position: relative;
     text-align: center;
-    box-shadow: 3px 6px rgba(0, 0, 0, 0.2);
+    text-shadow: 3px 6px rgba(50, 50, 70 0.5);
 }
 
 .weather-box .weather {
