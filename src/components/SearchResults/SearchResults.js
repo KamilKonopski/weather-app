@@ -2,7 +2,7 @@ import React from 'react';
 
 import './SearchResults.css';
 
-const SearchResults = props => {
+function SearchResults(props) {
 
     function dateBuilder(d) {
         let months = ["January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
