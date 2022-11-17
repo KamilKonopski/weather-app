@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-import './App.css';
-
 import SearchBar from './components/SearchBar/SearchBar';
 import SearchResults from './components/SearchResults/SearchResults';
+
+import './App.css';
 
 const api = {
   key: "5f13c8975544756484231769e79bd704",
