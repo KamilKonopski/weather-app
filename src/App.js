@@ -15,7 +15,7 @@ function App() {
   const [query, setQuery] = useState('');
   const [weather, setWeather] = useState({});
 
-  const search = (event) => {
+  function search(event) {
     if (event.key === "Enter") {
       fetch(`${api.base}weather?q=${query}&appid=${api.key}`)
         .then(res => res.json())
@@ -27,7 +27,7 @@ function App() {
     };
   };
 
-  const searchQuery = event => {
+  function searchQuery(event) {
     setQuery(event.target.value)
   }
 
